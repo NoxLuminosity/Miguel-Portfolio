@@ -4,9 +4,9 @@ Internal discovery notes prepared 2026-11-16. These notes are not site copy. The
 
 ## Scope and counting method
 
-The projects root contains three related Legal Monitoring System checkouts, separate MailX frontend and backend repositories, and one confidential CRM/contact-center application. The three Legal Monitoring System checkouts have identical histories, so their statistics are reported once. The employee ID system appears on the resume, but no matching source repository was found in the projects root.
+The projects root contains three related Legal Monitoring System checkouts, separate MailX frontend and backend repositories, and one confidential CRM/contact-center application. The three Legal Monitoring System checkouts have identical histories, so their statistics are reported once. No local employee ID system checkout was found; the user later provided its public GitHub repository, which was reviewed read-only.
 
-Contribution counts use all reachable Git refs. For each repository, commits from the three identities supplied in `AGENTS.md` were combined and deduplicated by commit hash. Shares are the credited commits divided by that repository's distinct reachable commits. Contribution areas below come from paths in those commits, not commit messages. Other author identities are not credited.
+Contribution counts use all reachable Git refs. For the GitHub-hosted employee ID repository, all four branches were checked and no tags were present; local repositories were counted with all refs. In each repository, commits from the three identities supplied in `AGENTS.md` were combined and deduplicated by commit hash. Shares are the credited commits divided by that repository's distinct reachable commits. Contribution areas below come from paths in those commits, not commit messages. Other author identities are not credited.
 
 | Project / repository grouping | My commits / total | Share | Latest checked-out HEAD | Additional uncredited identities with 10+ commits |
 | --- | ---: | ---: | --- | ---: |
@@ -14,6 +14,7 @@ Contribution counts use all reachable Git refs. For each repository, commits fro
 | MailX backend | 246 / 1,302 | 18.9% | 2026-11-03 | 5 |
 | MailX frontend | 149 / 915 | 16.3% | 2026-11-03 | 7 |
 | Confidential CRM/contact-center application (name withheld) | 173 / 1,662 | 10.4% | 2026-11-12 | 21 |
+| Employee ID registration system (GitHub repository) | 139 / 139 | 100.0% | 2026-02-24 | 0 |
 
 The extra-identity counts are an author-statistic only. Their identities are omitted, and their commits are excluded from Miguel's totals under the supplied attribution rule. Do not add the three Legal Monitoring System checkout rows together: their commit histories are the same.
 
@@ -64,16 +65,19 @@ The extra-identity counts are an author-statistic only. Their identities are omi
 
 ## Employee ID registration and automation system
 
-- **Category:** Resume-listed internal HR workflow project; no matching source checkout found.
-- **Purpose and business problem:** Automates employee ID registration, HR review/approval, image preparation, and print-ready ID generation.
-- **Stack and features:** Resume-verified only: FastAPI, Jinja2, JavaScript, Supabase PostgreSQL, SQLite, BytePlus Seedream AI, Cloudinary, background removal, and Lark auth/data services. The described features include an ID gallery and HR approval flow.
-- **Architecture:** Cannot be checked against source. The resume describes a FastAPI web application with relational storage and external image, AI, and identity/data services.
-- **Engineering complexity:** Medium to high by the resume description; implementation and boundaries could not be assessed without the repository.
-- **Verifiable contributions:** Resume describes personal project work, but no repository was located, so there is no attributable commit count or path-based contribution breakdown.
-- **Problems solved:** Reduces manual effort in employee ID preparation and review, based on the resume description.
-- **Status guess:** Unknown; source and current deployment were not found.
-- **Public-safe summary proposal:** “Built an internal HR workflow for employee ID review, image preparation, and print-ready output.”
-- **Privacy and naming:** Treat as company work. Keep employee records, headshots, printed ID details, internal HR rules, authentication/configuration details, and credentials private. Confirm permission before naming the employer or system.
+- **Category:** Internal HR workflow project built during an internship; company work.
+- **Source:** [Public GitHub repository](https://github.com/NoxLuminosity/Employee-ID-Registration-System). The README describes the project as confidential; a public repository does not establish permission to reuse its details in a portfolio.
+- **Purpose and business problem:** Automates employee ID requests, HR review, image preparation, and print-ready card delivery.
+- **Verified stack:** FastAPI and Uvicorn; Jinja2 templates and vanilla JavaScript; Supabase PostgreSQL with SQLite for local development; Cloudinary; BytePlus Seedream; Lark OAuth and data/messaging services; Vercel serverless configuration. The dependency manifest confirms FastAPI, Jinja2, Supabase, and Cloudinary; the README and deployment config document the other integrations.
+- **Main features:** Employee submission and status tracking, HR review/approval, an ID gallery, image processing, card/PDF generation, and routed delivery/notifications. These are source-derived internal details, not approved site copy.
+- **Architecture:** FastAPI application with server-rendered templates, static frontend assets, API modules, and a serverless entry point. SQLite supports local development; Supabase PostgreSQL is the documented production database. External services handle identity/data sync, image processing, AI image work, and notifications.
+- **Integrations:** Lark identity/data/messaging, Cloudinary image handling, BytePlus Seedream, Supabase, and Vercel.
+- **Engineering complexity:** Medium to high by the documented scope: one web application spans employee and HR workflows, role checks, several integrations, image handling, document generation, and multiple database modes. Runtime behavior was not tested.
+- **Verifiable contributions:** 139 of 139 commits reachable from four GitHub branches (100.0% by the three supplied author identities). Changed-file paths in 138 commits show backend/API, Jinja/static frontend, schema, automation scripts, and tests. One commit's file list was unavailable, so this area list may omit a touched path category. No high-volume unfamiliar author identities were found. The README describes a team project; commit share does not imply sole authorship.
+- **Problems solved:** Brings employee ID intake, review, image preparation, and delivery into a tracked workflow, based on the repository description.
+- **Status guess:** Archived/dormant. GitHub does not mark the repository archived, but its latest commit is dated 2026-02-24 in Asia/Manila; current use and deployment were not checked.
+- **Public-safe summary proposal:** “Contributed to an internal HR tool for employee ID applications, review, image preparation, and print-ready output.” Use only after employer approval; the source README labels the project confidential.
+- **Privacy and naming:** Treat as high-risk company work. Do not name the employer or expose employee records, headshots, completed IDs, department/branch routing rules, internal setup details, credentials, third-party contributor identities, README outcome claims, or proprietary implementation details without explicit approval.
 
 ## Portfolio app audit
 
@@ -94,8 +98,9 @@ The extra-identity counts are an author-statistic only. Their identities are omi
 | Docker, Docker Compose, Git, Linux/SSH, Grafana, SonarQube | Repo-backed in deployment/configuration docs and project tooling. |
 | GitHub Actions | Workflow configuration exists in the scanned repositories; contributions are also visible in CI paths. |
 | SendGrid, Lark API | Repo-backed in integration docs, manifests, and architecture. |
-| Prisma, Supabase, Cloudinary, BytePlus AI | No evidence found in the scanned project repositories; these appear only in the resume/authoritative project facts. |
+| Prisma | No evidence found in the scanned project repositories; this skill appears only in the resume/authoritative project facts. |
 | OpenAI API | Listed as a backend dependency, but an active integration was not verified; treat actual use as resume-supported only. |
-| Vercel | Present in frontend starter documentation/analytics dependency; a real deployment was not verified. Do not claim deployment experience from that evidence alone. |
+| Supabase, Cloudinary, BytePlus AI | Repo-backed in the employee ID system's dependency manifest, README, and deployment configuration. |
+| Vercel | Repo-backed by the employee ID system's deployment config and instructions; an actual live deployment was not verified. |
 
 Education and employment dates are supplied as authoritative facts in `AGENTS.md`. The resume prints the GWA as 1.56 / 1.0 without explaining the scale direction; whenever used, include the supplied clarification that 1.0 is the highest grade.

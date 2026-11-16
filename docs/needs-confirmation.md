@@ -7,17 +7,18 @@ Internal review list prepared 2026-11-16. No website content was changed during 
 - **Sanitized resume:** `public/resume.pdf` contains a phone number. Do not serve or link the current file. Replace it with a sanitized copy before deployment.
 - **Confidential CRM project:** The source describes an internal CRM/contact-center application, but does not establish ownership or public-release permission. Keep its name and business unnamed unless Miguel approves public naming.
 - **Company product names:** Confirm that the Legal Monitoring System, MailX, and associated employer/product names may be named publicly. The proposed summaries can stay generic until that is clear.
-- **Employee ID system:** The source repository was not found. Confirm that the project and its workflow/integration details may be described publicly before adding it to the site.
+- **Employee ID system:** The linked repository labels the project confidential. Confirm employer permission before publishing even a generic description; do not copy its reported metrics or organization-specific setup details.
 
 ## Evidence gaps
 
-- No source checkout for the employee ID system was found under the projects root. Its stack, features, and contribution claims are resume-supported only; no code or Git history was available to cross-check.
+- No local checkout for the employee ID system was found. Its public GitHub source was reviewed read-only. The README labels the project confidential and includes outcome claims without supporting measurement evidence; do not reuse those claims in portfolio copy.
+- The linked employee ID repository has 139 distinct commits reachable from four branches, all authored under one of the three supplied identities. File-path contribution areas were checked for 138 commits; one commit's file list was unavailable. The README describes a team effort, so commit share must not be presented as sole authorship. Current deployment status was not checked.
 - No portfolio application source or package manifest exists in this directory. There is no current framework to keep or rebuild; the recommended starting point is the requested Next.js App Router stack, after approval.
 - No `assets-incoming` directory exists. No sanitized product screenshots were available.
-- Active/archived labels are guesses based on checked-out HEAD dates, not checks of deployed services: Legal Monitoring System (2026-11-12–13), MailX repositories (2026-11-03), confidential CRM (2026-11-12).
+- Active/archived labels are guesses based on checked-out HEAD dates, not checks of deployed services: Legal Monitoring System (2026-11-12–13), MailX repositories (2026-11-03), confidential CRM (2026-11-12), employee ID system (2026-02-24, GitHub archive flag is false).
 - Several repositories contain additional unrecognized author-email identities with at least 10 commits. No addresses or names are recorded here; these commits were not credited, and totals use only the three identities supplied in `AGENTS.md`.
 - No measured performance, adoption, delivery, or business-impact metrics were verified. Omit such claims unless separate evidence is provided.
-- Prisma, Supabase, Cloudinary, and BytePlus AI were not found in the scanned project repositories. OpenAI is present as a dependency but active use was not verified. Vercel appears in starter/analytics material, but an actual deployment was not verified.
+- Prisma was not found in the scanned project repositories. Supabase, Cloudinary, and BytePlus AI are backed by the employee ID repository. OpenAI is present as a dependency but active use was not verified. Vercel configuration exists, but a live deployment was not verified.
 - The resume does not explain whether 1.0 or a larger number is the highest GWA. `AGENTS.md` supplies the authoritative clarification: 1.0 is the highest grade. Preserve that wording whenever the GWA is displayed.
 
 ## Naming and privacy review
